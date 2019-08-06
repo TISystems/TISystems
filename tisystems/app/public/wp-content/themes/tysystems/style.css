@@ -1,0 +1,278 @@
+/*
+    Theme Name: TISystems
+    Theme URI: 
+    Author: Víctor Rodríguez Pezantes
+    Author URI: http://www.tisystem.cl
+    Description: Tecnología a medida
+    Version: 1.0
+    License: GNU General Public License v2 or later
+    License: URI: http://www.gnu.org/licenses/gpl-2.0.html
+    Tags: Tecnologia a medida, desarrollo de software, creacion de sitios web wordpress
+    Text domain: TISystems
+*/
+
+
+/*DEFINIR LOS CUSTOM PROPERTIES*/
+
+:root {
+    /*FUENTES*/
+    --fuentePrincipal: 'Staatliches', cursive;
+    --fuenteTexto: 'Open Sans', sans-serif;
+    --fuenteSecundaria: 'Raleway', sans-serif;
+    /*COLORES*/
+    --colorPrimario: #249FE5;
+    --colorPrincipal: #4ac7f0;
+    --grisOscuro: #2F2E2E;
+    --grisClaro: #E2E7E0;
+    --blanco: #ffffff;
+    --verde: #2ED505;
+    --negro: #000000;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /* 10px = 1rem! */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 2;
+    font-family: var(--fuenteSecundaria);
+    background-color: var(--colorPrincipal);
+}
+
+
+/*utilidades*/
+
+.text-center {
+    text-align: center;
+}
+
+.texto-primario {
+    color: var(--blanco);
+}
+
+.seccion {
+    padding: 5rem 0;
+}
+
+
+/*HEADINGS*/
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--fuentePrincipal);
+    margin: 1rem 0;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 6rem
+}
+
+h2 {
+    font-size: 4.8rem
+}
+
+h3 {
+    font-size: 3.6rem
+}
+
+h4 {
+    font-size: 2.4rem
+}
+
+
+/*Styles Globales */
+
+p {
+    color: white;
+}
+
+hr {
+    border: 1px solid var(--blanco);
+}
+
+a {
+    text-decoration: none/*ELIMINA LA LINEA DE cada enlace*/
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.contenedor {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.imagen-destacada {
+    margin-bottom: 3rem;
+}
+
+
+/*header */
+
+.site-header {
+    background-color: var(--grisClaro);
+    padding: 2rem 0;
+}
+
+@media (min-width: 768px) {
+    .barra-navegacion {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* menu principal*/
+
+.menu-principal {
+    display: none;
+}
+
+.menu-principal li {
+    margin-right: 2rem;
+}
+
+.menu-principal li:last-of-type {
+    margin-right: 0;
+}
+
+@media(min-width: 768px) {
+    .menu-principal {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+}
+
+.menu-principal a {
+    font-family: var(--fuentePrincipal);
+    color: var(--colorPrincipal);
+    font-size: 2.2rem;
+    padding: .5rem 2rem;
+}
+
+.menu-principal .menu {
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu-principal .current_page_item {
+    border-bottom: 3px solid var(--colorPrincipal);
+}
+
+@media (min-width: 768px) {
+    .menu-principal a {
+        font-size: 2.6rem;
+        position: relative;
+        z-index: 1;
+    }
+    .menu-principal a::before,
+    .menu-principal a::after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 50%;
+        background-color: var(--blanco);
+        z-index: -1;
+        transform: scaleX(0);
+        transition: transform .6s;
+    }
+    .menu-principal a::before {
+        top: 0;
+        transform-origin: left;
+    }
+    .menu-principal a::after {
+        top: 50%;
+        transform-origin: right;
+    }
+    .menu-principal a:hover::before {
+        transform: scaleX(1);
+    }
+    .menu-principal a:hover::after {
+        transform: scaleX(1);
+    }
+}
+
+
+/*reescribir estilos de menu movil*/
+
+@media (min-width: 768px) {
+    .slicknav_menu {
+        display: none;
+    }
+}
+
+.slicknav_menu {
+    background-color: var(--grisClaro);
+}
+
+.slicknav_btn {
+    background-color: var(--colorPrimario);
+}
+
+.slicknav_nav a {
+    font-size: 2.4rem;
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+    color: var(--colorPrincipal);
+}
+
+.slicknav_nav a:hover {
+    background: transparent;
+    color: var(--verde);
+}
+
+
+/*footer*/
+
+.contenido-footer {
+    padding: 4rem 0;
+}
+
+
+/*paginas*/
+
+.pagina h1 {
+    margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+    .pagina.con-sidebar {
+        display: flex;
+        justify-content: space-between;
+    }
+    .con-sidebar .contenido-principal {
+        flex: 0 0 cal(60% - 2rem);
+    }
+    .con-sidebar .sidebar {
+        flex: 0 0 cal(40% - 2rem);
+    }
+}
